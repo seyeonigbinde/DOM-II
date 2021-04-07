@@ -60,7 +60,7 @@ headerLogo.addEventListener("mouseover", function(event){
   const bodyContent= document.querySelector('.content-destination')
   const bodyHead= bodyContent.querySelector('h2')
   bodyHead.addEventListener("mouseenter", function(event){
-    alert("The ontoggle event occured");
+    alert("Pick your preferred location here");
   })
 
  //updating footer
@@ -81,9 +81,9 @@ headerLogo.addEventListener("mouseover", function(event){
      //Updating Images
      const imgBorder = introContent.querySelector('img')
      imgBorder.addEventListener("mousedown", function(event){
-     imgBorder.style.border = "10px solid grey";
+     imgBorder.style.border = "10px solid #ffbe0f";
      setTimeout(function() {
-         imgBorder.style.border = "5px solid #ffbe0f";
+         imgBorder.style.border = "5px solid grey";
        }, 500);
      }, false)
  
@@ -105,39 +105,24 @@ headerLogo.addEventListener("mouseover", function(event){
       }, 500);
     }, false)
 
-// const imgMouseOver = document.querySelectorAll("nav a")
-// itemMouseOver.addEventListener("mouseover", function(event){
-//     event.target.style.color = "red";
-// })
-
-  * `keydown`
-  document.addEventListener("keydown", function (event) {
-    // if the event object contains the key 'escape', kill modal
-    if (event.key === "Escape") {
-        event.target.style.color = "#fff";
-    }
-        setTimeout(function() {
-            event.target.style.color = "";
-          }, 100);
-        }, false)
     
   * `scroll`
     const bodyWheel= document.querySelector('body')
   bodyWheel.querySelector.addEventListener("wheel", function(event){
-    bodyWheel.style.background = "#red";
+    bodyWheel.style.background = "lightblue";
   })
 
   * `dblclick`
   //updating header img
-  const introImg = introContent.querySelector('img')
-    introImg.addEventListener("dblclick", function(event){
-    event.target.style.borderRadius = "10%";
-    event.target.style.opacity = "60%";
-    setTimeout(function() {
-        event.target.style.borderRadius = "";
-        event.target.style.opacity = "";
-      }, 500);
-    }, false)
+//   const introImg = document.querySelectorAll('.content-section img')
+//     introImg.addEventListener("dblclick", function(event){
+//         introImg.style.borderRadius = "10%";
+//         introImg.style.opacity = "60%";
+//     setTimeout(function() {
+//         event.target.style.borderRadius = "";
+//         event.target.style.opacity = "";
+//       }, 500);
+//     }, false)
 
     * `click`
     //updating the entire body
@@ -148,3 +133,21 @@ headerLogo.addEventListener("mouseover", function(event){
         }, 1000);
       }, false)
     
+    //   propagation
+      * `keydown`
+      const fullPage = document.body;
+      const highlightedCont = document.querySelector(".home");
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            fullPage.style.background = ("#ddd");
+        }
+    })
+
+    highlightedCont.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            highlightedCont.style.color = "yellow";
+            event.stopImmediatePropagation();
+            fullPage.style.background = ("#ddd");
+        }
+    });
+            
