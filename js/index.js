@@ -114,15 +114,15 @@ headerLogo.addEventListener("mouseover", function(event){
 
   * `dblclick`
   //updating header img
-//   const introImg = document.querySelectorAll('.content-section img')
-//     introImg.addEventListener("dblclick", function(event){
-//         introImg.style.borderRadius = "10%";
-//         introImg.style.opacity = "60%";
-//     setTimeout(function() {
-//         event.target.style.borderRadius = "";
-//         event.target.style.opacity = "";
-//       }, 500);
-//     }, false)
+  const destinationSec= document.querySelector('.content-pick')
+  const destinationContent = destinationSec.querySelector('p')
+    destinationContent[0].addEventListener("dblclick", function(event){
+    destinationContent.style.color = "purple";
+    setTimeout(function() {
+        destinationContent.style.color = "";
+      }, 500);
+    }, false)
+// 
 
     * `click`
     //updating the entire body
